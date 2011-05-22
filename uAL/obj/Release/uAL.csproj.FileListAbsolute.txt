@@ -1,0 +1,7 @@
+D:\My Dropbox\Misc\uAL\uAL\obj\Release\uAL.exe
+D:\My Dropbox\Misc\uAL\uAL\obj\Release\uAL.pdb
+D:\My Dropbox\Misc\uAL\uAL\bin\Release\uAL.exe
+D:\My Dropbox\Misc\uAL\uAL\bin\Release\uAL.pdb
+D:\My Dropbox\Misc\uAL\uAL\bin\Release\Jayrock.dll
+D:\My Dropbox\Misc\uAL\uAL\bin\Release\Jayrock.Json.dll
+D:\My Dropbox\Misc\uAL\uAL\obj\Release\ResolveAssemblyReference.cache

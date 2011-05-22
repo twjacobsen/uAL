@@ -1,0 +1,7 @@
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\Tester.exe
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\Tester.pdb
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\Jayrock.dll
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\Jayrock.Json.dll
+D:\My Dropbox\Misc\Tester\Tester\obj\Release\ResolveAssemblyReference.cache
+D:\My Dropbox\Misc\Tester\Tester\obj\Release\Tester.exe
+D:\My Dropbox\Misc\Tester\Tester\obj\Release\Tester.pdb

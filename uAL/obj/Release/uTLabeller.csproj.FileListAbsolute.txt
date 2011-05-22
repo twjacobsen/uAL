@@ -1,0 +1,14 @@
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\uT Auto Labeller.exe
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\uT Auto Labeller.pdb
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\Jayrock.dll
+D:\My Dropbox\Misc\Tester\Tester\bin\Release\Jayrock.Json.dll
+D:\My Dropbox\Misc\Tester\Tester\obj\Release\ResolveAssemblyReference.cache
+D:\My Dropbox\Misc\Tester\Tester\obj\Release\uT Auto Labeller.exe
+D:\My Dropbox\Misc\Tester\Tester\obj\Release\uT Auto Labeller.pdb
+D:\My Dropbox\Misc\uAL\Tester\bin\Release\uAL.exe
+D:\My Dropbox\Misc\uAL\Tester\bin\Release\uAL.pdb
+D:\My Dropbox\Misc\uAL\Tester\bin\Release\Jayrock.dll
+D:\My Dropbox\Misc\uAL\Tester\bin\Release\Jayrock.Json.dll
+D:\My Dropbox\Misc\uAL\Tester\obj\Release\ResolveAssemblyReference.cache
+D:\My Dropbox\Misc\uAL\Tester\obj\Release\uAL.exe
+D:\My Dropbox\Misc\uAL\Tester\obj\Release\uAL.pdb
