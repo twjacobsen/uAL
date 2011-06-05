@@ -1,0 +1,56 @@
+﻿<Window x:Class="wuAL.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Title="wuAL - uTorrent Auto Labeller with WPF GUI" Height="300" Width="300">
+    <StackPanel Margin="5">
+        <StackPanel.Resources>
+            <BooleanToVisibilityConverter x:Key="boolToVis" />
+        </StackPanel.Resources>
+        <Grid Visibility="{Binding Path=NotConnected, Converter={StaticResource boolToVis}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2"/>
+                <RowDefinition/>
+                <RowDefinition Height="2"/>
+                <RowDefinition/>
+                <RowDefinition Height="2"/>
+                <RowDefinition/>
+                <RowDefinition Height="2"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Username</Label>
+            <TextBox Name="UserNameBox" Grid.Column="1"  TextChanged="SettingsTextChanged"/>
+            <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Password</Label>
+            <PasswordBox Name="PasswordBox" Grid.Column="1" Grid.Row="2" PasswordChanged="SettingsTextChanged"/>
+            <Label Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Host:port</Label>
+            <TextBox Name="HostnameBox" Grid.Column="1" Grid.Row="4" TextChanged="SettingsTextChanged"/>
+            <Label Visibility="{Binding Path=NotLocalhost, Converter={StaticResource boolToVis}}" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right">Torrent-directory</Label>
+            <TextBox Name="TorrentDirBox"  Visibility="{Binding Path=NotLocalhost, Converter={StaticResource boolToVis}}" Grid.Column="1" Grid.Row="6" TextChanged="SettingsTextChanged" />
+            <Button Grid.Row="8" Grid.ColumnSpan="2" Width="100" Click="Connect" IsEnabled="{Binding IsValidSettings}">Connect...</Button>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding Path=Connected, Converter={StaticResource boolToVis}}">
+            <TextBlock VerticalAlignment="Center">Connected to <TextBlock Text="{Binding HostAddress}"/></TextBlock>
+            <Button>Disconnect...</Button>
+        </StackPanel>
+        <TextBlock Visibility="{Binding Path=Connecting, Converter={StaticResource boolToVis}}">Connecting to <TextBlock Text="{Binding HostAddress}"/>.. Please wait..</TextBlock>
+        <StackPanel Margin="0,2,0,2">
+            <CheckBox>Stop torrents when done downloading</CheckBox>
+            <Button Click="Button_Click">Bool-test</Button>
+        </StackPanel>
+        <ListView ItemsSource="{Binding TorrentActions}" Height="300">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="150" Header="Torrent"
+                                    DisplayMemberBinding="{Binding TorrentName}"/>
+                    <GridViewColumn Width="120" Header="Action"
+                                    DisplayMemberBinding="{Binding Action}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</Window>

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uAL", "uAL\uAL.csproj", "{D51AFB67-F321-4120-AE68-C5A4BB21234E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wuAL", "wuAL\wuAL.csproj", "{9A57947E-74F8-43C4-B325-E0F01564EFE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{D51AFB67-F321-4120-AE68-C5A4BB21234E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D51AFB67-F321-4120-AE68-C5A4BB21234E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D51AFB67-F321-4120-AE68-C5A4BB21234E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A57947E-74F8-43C4-B325-E0F01564EFE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A57947E-74F8-43C4-B325-E0F01564EFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A57947E-74F8-43C4-B325-E0F01564EFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A57947E-74F8-43C4-B325-E0F01564EFE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

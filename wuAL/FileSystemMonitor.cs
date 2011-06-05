@@ -5,9 +5,9 @@ namespace uAL
 {
     class FileSystemMonitor
     {
-        public FileSystemMonitor()
+        public FileSystemMonitor(TorrentAPI t)
         {
-            string downloadDir = uAL.Program.settings.Dir;
+            string downloadDir = "";
             string downloadFolder = downloadDir.Substring(downloadDir.LastIndexOf('\\') + 1);
             FileSystemWatcher w = new FileSystemWatcher(downloadDir);
             w.Filter = "*.torrent";
@@ -21,7 +21,8 @@ namespace uAL
                 string tmp = fi.Directory.ToString();
                 string eventParent = tmp.Substring(tmp.LastIndexOf('\\') + 1);
                 if (downloadFolder != eventParent)
-                    uAL.Program.t.AddTorrent(e.FullPath, eventParent);
+                    if(t.AddTorrent(e.FullPath, eventParent))
+                        Path.ChangeExtension(e.FullPath, "loaded");
             };
         }
     }

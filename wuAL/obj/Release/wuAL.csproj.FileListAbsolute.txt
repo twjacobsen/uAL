@@ -1,0 +1,15 @@
+D:\My Dropbox\Misc\uAL\wuAL\bin\Release\wuAL.exe
+D:\My Dropbox\Misc\uAL\wuAL\bin\Release\wuAL.pdb
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\ResolveAssemblyReference.cache
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\App.g.cs
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\wuAL_MarkupCompile.cache
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\wuAL.g.resources
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\wuAL.Properties.Resources.resources
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\wuAL.csproj.GenerateResource.Cache
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\wuAL.exe
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\wuAL.pdb
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\MainWindow.baml
+D:\My Dropbox\Misc\uAL\wuAL\obj\Release\MainWindow.g.cs
+D:\My Dropbox\Misc\uAL\wuAL\bin\Release\Jayrock.dll
+D:\My Dropbox\Misc\uAL\wuAL\bin\Release\Jayrock.Json.dll
+D:\My Dropbox\Misc\uAL\wuAL\bin\Release\wuAL.exe.config

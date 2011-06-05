@@ -1,0 +1,15 @@
+D:\My Dropbox\Misc\uAL\wuAL\bin\Debug\wuAL.exe.config
+D:\My Dropbox\Misc\uAL\wuAL\bin\Debug\wuAL.exe
+D:\My Dropbox\Misc\uAL\wuAL\bin\Debug\wuAL.pdb
+D:\My Dropbox\Misc\uAL\wuAL\bin\Debug\Jayrock.dll
+D:\My Dropbox\Misc\uAL\wuAL\bin\Debug\Jayrock.Json.dll
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\ResolveAssemblyReference.cache
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\MainWindow.baml
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\MainWindow.g.cs
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\App.g.cs
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\wuAL_MarkupCompile.cache
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\wuAL.g.resources
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\wuAL.Properties.Resources.resources
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\wuAL.csproj.GenerateResource.Cache
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\wuAL.exe
+D:\My Dropbox\Misc\uAL\wuAL\obj\Debug\wuAL.pdb

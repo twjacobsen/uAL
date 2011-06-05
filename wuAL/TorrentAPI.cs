@@ -7,7 +7,6 @@ using System.ServiceModel.Web;
 using System.Net;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Timers;
 using Jayrock;
 using Jayrock.Json;
 using Jayrock.Json.Conversion;
@@ -34,7 +33,6 @@ namespace uAL
         private string host, username, password, token, cookie;
         CredentialCache credentials;
         List<Torrent> torrentCollection;
-        Timer timer;
 
         public TorrentAPI(string _host, string _userName, string _password)
         {
@@ -47,14 +45,6 @@ namespace uAL
 
             GetToken();
             GetTorrents(false);
-
-            if (uAL.Program.settings.StopOnDone.ToLower() == "y")
-            {
-                timer = new Timer(60000);
-                timer.AutoReset = true;
-                timer.Elapsed += (s, a) => StopTorrents();
-                timer.Start();
-            }
         }
 
         private void GetToken()
@@ -94,7 +84,7 @@ namespace uAL
             foreach (JsonArray se in settings)
             {
                 string _prop = (string)se[0];
-                if (_prop == "dir_autoload")
+                if(_prop == "dir_autoload")
                     dir = (string)se[2];
             }
 
@@ -122,11 +112,11 @@ namespace uAL
                 string hash = (string)torrent[0];
                 string name = (string)torrent[2];
                 string label = (string)torrent[11];
-                int percentage = Int32.Parse(torrent[4].ToString());
+                int percentage = (int)torrent[4];
 
 
                 returnTorrents.Add(new Torrent { Hash = hash, Name = name, Label = label, PercentageDone = percentage });
-                if (forceUpdate)
+                if(forceUpdate)
                     torrentCollection.Add(new Torrent { Hash = hash, Name = name, Label = label, PercentageDone = percentage });
             }
 
@@ -141,7 +131,7 @@ namespace uAL
             foreach (Torrent torrent in torrents)
             {
                 addTorrent = true;
-                foreach (Torrent cachedTorrent in torrentCollection)
+                foreach(Torrent cachedTorrent in torrentCollection)
                 {
                     if (torrent.Hash == cachedTorrent.Hash)
                     {
@@ -157,9 +147,6 @@ namespace uAL
 
         public bool AddTorrent(string fileName, string label)
         {
-            if(timer != null)
-                timer.Start();
-
             //First, get excisting torrents from uTorrent, in case some have been added from outside this service...
             GetTorrents(true);
 
@@ -182,7 +169,7 @@ namespace uAL
                 Writer.Write(FileBytes, 0, FileBytes.Length);
                 Writer.Write(Encoding.ASCII.GetBytes(String.Format("\r\n--{0}\r\n", guid)));
             }
-            TorrentStream.Close();
+
             HttpWebResponse response = (HttpWebResponse)PostReq.GetResponse();
             StreamReader sr = new StreamReader(response.GetResponseStream());
             string t = sr.ReadToEnd();
@@ -192,16 +179,15 @@ namespace uAL
             {
                 if (newTorrent.Label == "")
                 {
-                    HttpWebRequest addLabel = (HttpWebRequest)(HttpWebRequest.Create(host + "?action=setprops&token=" + token + "&hash=" + newTorrent.Hash + "&s=label&v=" + label));
+                    HttpWebRequest addLabel = (HttpWebRequest)(HttpWebRequest.Create(host + "?action=setprops&token=" + token + "&hash="+newTorrent.Hash+"&s=label&v="+label));
                     addLabel.Credentials = credentials;
                     addLabel.Headers.Add("Cookie", cookie);
                     HttpWebResponse _response = (HttpWebResponse)addLabel.GetResponse();
                     sr = new StreamReader(_response.GetResponseStream());
                     t = sr.ReadToEnd();
                     _response.Close();
-
-                    Console.WriteLine();
                     Console.WriteLine("Added " + fileName + " with label " + label);
+                    Console.WriteLine();
                     return true;
                 }
             }
@@ -210,33 +196,7 @@ namespace uAL
 
         public void StopTorrents()
         {
-            GetTorrents(true);
-            List<string> toStop = new List<string>();
-            foreach(Torrent torrent in torrentCollection)
-            {
-                if (torrent.PercentageDone == 1000 && torrent.Running)
-                    if (uAL.Program.Labels.Contains(torrent.Label))
-                    {
-                        Console.WriteLine(torrent.Name + " is done, and will be stopped");
-                        toStop.Add(torrent.Hash);
-                        torrent.Running = false;
-                    }
-            }
-            if (toStop.Count > 0)
-            {
-                string hashes = "";
-                foreach (string hash in toStop)
-                {
-                    hashes += "&hash=" + hash;
-                }
-                HttpWebRequest stopTorrent = (HttpWebRequest)(HttpWebRequest.Create(host + "?action=stop&token=" + token + hashes));
-                stopTorrent.Credentials = credentials;
-                stopTorrent.Headers.Add("Cookie", cookie);
-                HttpWebResponse response = (HttpWebResponse)stopTorrent.GetResponse();
-                StreamReader sr = new StreamReader(response.GetResponseStream());
-                string torrentsResponse = sr.ReadToEnd();
-                response.Close();
-            }
+
         }
     }
 
@@ -246,6 +206,5 @@ namespace uAL
         public string Name;
         public string Label;
         public int PercentageDone;
-        public bool Running = true;
     }
 }
